@@ -304,7 +304,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenSwitchUp, function (
         tiles.setWallAt(tiles.getTileLocation(4, 14), false)
         tiles.setWallAt(tiles.getTileLocation(16, 16), false)
         tiles.setWallAt(tiles.getTileLocation(2, 17), false)
-        tiles.setWallAt(tiles.getTileLocation(17, 16), false)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile16, function (sprite, location) {
