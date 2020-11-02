@@ -20,7 +20,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile3, function (sprite, location
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile14, function (sprite, location) {
     if (game.askForString("¡Buenas días! ", 11) == "buenos dias") {
-        if (game.askForString("¿qué tal?", 9) == "buenos dias") {
+        if (game.askForString("¿qué tal?", 13) == "muy bien y tu") {
             tiles.placeOnTile(mySprite, tiles.getTileLocation(24, 3))
             if (game.askForString("muy bien, venga, hasta luego", 5) == "adios") {
                 tiles.placeOnTile(mySprite, tiles.getTileLocation(24, 3))
@@ -878,28 +878,38 @@ let movimiento = false
 let mySprite: Sprite = null
 effects.starField.startScreenEffect()
 game.setDialogFrame(img`
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . 
+    333333333333333333333333
+    3dddddddddddddddddddddd3
+    3d33333333333333333333d3
+    333333333333333333333333
+    b3bddb333333333333bddb3b
+    b3b33b333333333333b33b3b
+    b3bbbb333333333333bbbb3b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3333333333333333333333b
+    b3bddb333333333333bddb3b
+    b3b33b333333333333b33b3b
+    b3bbbb333333333333bbbb3b
+    bb33333333333333333333bb
+    bbbbbbbbbbbbbbbbbbbbbbbb
+    bbbbbbbbbbbbbbbbbbbbbbbb
     `)
+game.showLongText("Amy es una estudiante de español que vive en Francia. Quiere viajar a Málaga, España. Para ello tiene que hacer mucho papeleo y trabajar para comprarse un billete de avión. En el camino se encontrará con muchos obstáculos, además de algo misterioso que se encuentra escondido en la ciudad. ¿Conseguirá viajar a España?", DialogLayout.Full)
 tiles.setTilemap(tiles.createTilemap(hex`3200140001040b040406050113212626262626262c2e0101013232323232323232323232323232323232323232323232323232323232010504040413040419222727270e0e062d2f1d1d0104253537251a352504352525252525252525353535353f453f3f3f2732010504040b13170404220e0e0e0e0e0e0e2f1d1d0104253533253b352504353834343434343333333333333f3f3f3f413f320105040b0413041904232828282a282828301d1d0104253533250435250435382525253333333333333333163f3f3f3f3f32010604040b131818182b1d1d241d1d1d1d1d1d1d011a253533250435251a352525333325252525333333333f3f3f3f3f4532010504040413190417242424241d1d1d1d1d1d1d01042533333318333318333333333333333333333333333f3f3f3f3f3f320105040b11130404041d2424241d1d1d1d1d1d1d011c1e1e1e1e1e1e1e1e1e1e1e1e1e1e1f3333333333333f453f3f3f42320105040404131704192524242424241d1d1d1d25253333333833333333333333333d343404333333333333363636363636320105040404130417041d242424241d1d1d1d0125252501013838363333363c3936181e1e1e3333333333333535353535353201050b040b13190404252424241d1d1d1d1d01010101010138393633333638383804363636363333333333333333333333320105040404130419171d2424241d1d1d1d1d01010101010136363633333636363604363839363333253333252525252525320105040b04131a1a1a252424241d1d1d1d1d0101010101011e1e1e291e1e1e1e1e1e20383836333325333334343434343832010604040413041a041d242424241d1d1d1d01252525010133333333183333333333363636363333253333363636363636320107070707130404171d2424241d1d1d1d1d1d2525253336363636361a36393838333333333333332533333434343434433201080c0f0f141719041d2424241d1d1d1d1d1d1d01333336393939360425383836331b1e1e1e1e1f2533332525252525253201090d0d12150404042424241d0d1d1d1d311d1d013333363a3838360436363636331a33383333183333333333333333333201090e0e0e151b1e1f051e1e291e1e1e1e1f1d1d013433332533383604333333333318333e33330438043332323232333332020202100e151c1e201d1d1d1d1d1d1d1d041d1d01341b291e1e1e1e1e291e1e1e1e20333933331a39043332004033334432030a0a100e150707071d1d1d1d1d1d1d1d041d1d011b1a333333333333333333333333333838251c1e203332003333334432030a0a020e161d1d1d1d1d1d1d1d1d1d1d1c2913012032323232323232323232323232323232323232323232323232323232`, img`
     2.2...2222222222.222222222222222222222222222222222
     2.....2222.....2.2..2.22.2222.22222222222222.2..22
     2...2.2222.......2..2.22.2.22.2222222......2.....2
     2..2..2222222.2222..2.22.2.22.22222..............2
-    2...2...............2.22.2.22.222..2222....2....22
+    2...2...............2222.2.222222..2222....2....22
     2.....222...........2.2....................2.....2
     2..2..222...........2......................2.2...2
     2.....2222.........22.............22.......2222222
@@ -908,12 +918,12 @@ tiles.setTilemap(tiles.createTilemap(hex`3200140001040b0404060501132126262626262
     2.....222...............222..2222.2..2..2..2222222
     2..2..2222...........................2..2........2
     2.....222..........222............2222..2..2222222
-    2.....222..........222.22222.22.........2........2
+    2.....222..........222.22222222.........2........2
     222222222...........2..2...2.2..2.......2..2222222
-    2222.2222...........2..2...2.2222................2
+    2222.2222...........2..2...2.2222.2..............2
     22...2222222222222..22..2..2...............2222..2
-    2222.2222........2..22..................2..22...22
-    2..2.2222........2..2.................2...22....22
+    2222.2222........2..22.................22..22...22
+    2..2.2222........2..2.2...............2...22....22
     2..2.............222222222222222222222222222222222
     `, [myTiles.transparency16,sprites.dungeon.floorDarkDiamond,sprites.dungeon.doorClosedEast,sprites.dungeon.doorClosedNorth,sprites.vehicle.roadVertical,sprites.vehicle.roadIntersection2,myTiles.tile1,sprites.vehicle.roadIntersection1,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterWest1,sprites.dungeon.darkGroundSouthWest1,myTiles.tile2,sprites.dungeon.greenOuterNorth2,myTiles.tile3,sprites.dungeon.darkGroundCenter,sprites.dungeon.greenOuterNorth1,sprites.dungeon.doorClosedSouth,sprites.dungeon.stairWest,myTiles.tile4,sprites.vehicle.roadIntersection4,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.stairLarge,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,sprites.vehicle.roadTurn1,sprites.vehicle.roadTurn3,sprites.dungeon.floorLight0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadTurn2,sprites.vehicle.roadTurn4,sprites.dungeon.purpleOuterNorthWest,sprites.dungeon.purpleOuterWest1,sprites.dungeon.purpleOuterSouthEast,sprites.dungeon.floorLight1,myTiles.tile9,sprites.dungeon.purpleOuterNorth1,sprites.dungeon.stairLadder,sprites.dungeon.purpleOuterSouth1,myTiles.tile10,sprites.dungeon.stairNorth,myTiles.tile11,sprites.dungeon.greenSwitchUp,myTiles.tile12,sprites.dungeon.purpleOuterNorthEast,sprites.dungeon.purpleOuterEast0,sprites.dungeon.purpleOuterSouthWest,sprites.dungeon.floorLight4,sprites.builtin.brick,sprites.dungeon.floorDark2,sprites.castle.saplingOak,sprites.builtin.forestTiles0,myTiles.tile13,myTiles.tile14,sprites.castle.tileGrass1,sprites.castle.saplingPine,myTiles.tile15,myTiles.tile16,myTiles.tile17,sprites.vehicle.roadIntersection3,myTiles.tile18,sprites.dungeon.floorDark1,myTiles.tile19,myTiles.tile20,myTiles.tile21,myTiles.tile22,myTiles.tile23,sprites.dungeon.floorDark4], TileScale.Sixteen))
 mySprite = sprites.create(img`
@@ -955,7 +965,7 @@ let mySprite2 = sprites.create(img`
     . f d f f f d f f d f . . . 
     . f f . . f f . . f f . . . 
     `, SpriteKind.Enemy)
-mySprite2.follow(mySprite, 100)
+mySprite2.follow(mySprite, 50)
 tiles.placeOnTile(mySprite2, tiles.getTileLocation(1, 19))
 game.onUpdate(function () {
     movimiento = controller.down.isPressed() || (controller.up.isPressed() || (controller.left.isPressed() || controller.right.isPressed()))
