@@ -12,7 +12,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile3, function (sprite, location
         tiles.placeOnTile(mySprite, tiles.getTileLocation(12, 15))
         tiles.setWallAt(tiles.getTileLocation(12, 16), false)
     } else {
-        game.setDialogFrame(sprites.builtin.computer1)
+        game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
         game.showLongText("Esta es la oficina de visas. SIGUIENTE!", DialogLayout.Full)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(12, 15))
         tiles.setWallAt(tiles.getTileLocation(12, 16), true)
@@ -25,17 +25,17 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile14, function (sprite, locatio
             if (game.askForString("muy bien, venga, hasta luego", 5) == "adios") {
                 tiles.placeOnTile(mySprite, tiles.getTileLocation(24, 3))
             } else {
-                game.setDialogFrame(sprites.builtin.computer1)
+                game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
                 game.showLongText("La respuesta es <<adios>>", DialogLayout.Full)
                 tiles.placeOnTile(mySprite, tiles.getTileLocation(24, 3))
             }
         } else {
-            game.setDialogFrame(sprites.builtin.computer1)
+            game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
             game.showLongText("La respuesta es <<muy bien y tu>>", DialogLayout.Full)
             tiles.placeOnTile(mySprite, tiles.getTileLocation(24, 3))
         }
     } else {
-        game.setDialogFrame(sprites.builtin.computer1)
+        game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
         game.showLongText("La respuesta es <<buenos dias>>", DialogLayout.Full)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(24, 3))
     }
@@ -297,7 +297,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenSwitchUp, function (
     if (true) {
         music.siren.play()
         tiles.setTileAt(location, sprites.dungeon.greenSwitchDown)
-        game.setDialogFrame(sprites.builtin.computer1)
+        game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
         game.showLongText("La curiosidad mató al gato means Curiosity killed the cat. Y ahora un lince ibérico te está buscando para matarte. Ten cuidado.", DialogLayout.Full)
         tiles.setWallAt(tiles.getTileLocation(3, 19), false)
         tiles.setWallAt(tiles.getTileLocation(12, 16), false)
@@ -521,12 +521,12 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile19, function (sprite, locatio
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile11, function (sprite, location) {
     if (info.score() >= 1 && game.askForString("¿Contraseña? means password", 6) == "MALAGA") {
-        game.setDialogFrame(sprites.builtin.computer1)
+        game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
         game.showLongText("Tiene todos sus documentos en regla . Puede pasar. ¡Buen viaje!", DialogLayout.Full)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 6))
         info.changeScoreBy(-1)
     } else {
-        game.setDialogFrame(sprites.builtin.computer1)
+        game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
         game.showLongText("Lo siento. Necesita pagar la tasa, decir la contraseña y todos sus documentos en regla.", DialogLayout.Full)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(11, 4))
     }
@@ -535,11 +535,11 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile12, function (sprite, locatio
     if (info.score() >= 1 && game.askForString("¿Qué necesita?", 9) == "pasaporte") {
         music.magicWand.play()
         tiles.setTileAt(location, sprites.dungeon.floorDark2)
-        game.setDialogFrame(sprites.builtin.computer1)
+        game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
         game.showLongText("Aquí tiene su pasaporte. Ya puede solicitar su visa", DialogLayout.Full)
         info.changeScoreBy(-2)
     } else {
-        game.setDialogFrame(sprites.builtin.computer1)
+        game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
         game.showLongText("Aquí no regalamos pasaportes", DialogLayout.Full)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(13, 4))
     }
@@ -859,7 +859,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile20, function (sprite, locatio
     }
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile1, function (sprite, location) {
-    game.setDialogFrame(sprites.builtin.computer1)
+    game.setDialogFrame(sprites.dialog.smallDialogLeftThin)
     game.showLongText("Deténgase usted no puede estar aquí. Solo personal autorizado. Salga de aquí inmediatamente o la multaré-", DialogLayout.Full)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 6))
 })
