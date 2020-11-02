@@ -371,12 +371,6 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile15, function (sprite, locatio
         tiles.placeOnTile(mySprite, tiles.getTileLocation(25, 15))
     }
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.enemy2, function (sprite, otherSprite) {
-    mySprite.destroy(effects.disintegrate, 500)
-    game.over(false, effects.dissolve)
-    scene.cameraShake(4, 500)
-    info.changeLifeBy(-1)
-})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
