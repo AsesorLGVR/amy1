@@ -197,6 +197,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile23, function (sprite, locatio
             ccccc...................
             `)
         game.showLongText("Pago en efectivo. Gracias por todo", DialogLayout.Full)
+        music.magicWand.play()
         info.changeScoreBy(-1)
         tiles.setTileAt(location, sprites.dungeon.floorDark2)
     } else {
@@ -294,11 +295,16 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenSwitchUp, function (sprite, location) {
     if (true) {
-        music.baDing.play()
+        music.siren.play()
         tiles.setTileAt(location, sprites.dungeon.greenSwitchDown)
         game.setDialogFrame(sprites.builtin.computer1)
         game.showLongText("La curiosidad mató al gato means Curiosity killed the cat. Y ahora un lince ibérico te está buscando para matarte. Ten cuidado.", DialogLayout.Full)
         tiles.setWallAt(tiles.getTileLocation(3, 19), false)
+        tiles.setWallAt(tiles.getTileLocation(12, 16), false)
+        tiles.setWallAt(tiles.getTileLocation(4, 14), false)
+        tiles.setWallAt(tiles.getTileLocation(16, 16), false)
+        tiles.setWallAt(tiles.getTileLocation(2, 17), false)
+        tiles.setWallAt(tiles.getTileLocation(17, 16), false)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile16, function (sprite, location) {
@@ -528,7 +534,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile11, function (sprite, locatio
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile12, function (sprite, location) {
     if (info.score() >= 1 && game.askForString("¿Qué necesita?", 9) == "pasaporte") {
-        music.baDing.play()
+        music.magicWand.play()
         tiles.setTileAt(location, sprites.dungeon.floorDark2)
         game.setDialogFrame(sprites.builtin.computer1)
         game.showLongText("Aquí tiene su pasaporte. Ya puede solicitar su visa", DialogLayout.Full)
@@ -863,10 +869,13 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.floorDark2, function (spr
     tiles.setTileAt(tiles.getTileLocation(44, 17), sprites.builtin.computer1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    mySprite.destroy(effects.disintegrate, 500)
-    game.over(false, effects.dissolve)
-    scene.cameraShake(4, 500)
-    info.changeLifeBy(-1)
+    if (true) {
+        scene.cameraShake(4, 500)
+        music.powerDown.play()
+        mySprite.say("Joder!", 200)
+        info.changeLifeBy(-1)
+        tiles.placeOnRandomTile(otherSprite, sprites.dungeon.darkGroundSouthWest1)
+    }
 })
 let movimiento = false
 let mySprite: Sprite = null
@@ -920,6 +929,8 @@ tiles.setTilemap(tiles.createTilemap(hex`3200140001040b0404060501132126262626262
     2..2.2222........2..2.2...............2...22....22
     2..2.............222222222222222222222222222222222
     `, [myTiles.transparency16,sprites.dungeon.floorDarkDiamond,sprites.dungeon.doorClosedEast,sprites.dungeon.doorClosedNorth,sprites.vehicle.roadVertical,sprites.vehicle.roadIntersection2,myTiles.tile1,sprites.vehicle.roadIntersection1,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterWest1,sprites.dungeon.darkGroundSouthWest1,myTiles.tile2,sprites.dungeon.greenOuterNorth2,myTiles.tile3,sprites.dungeon.darkGroundCenter,sprites.dungeon.greenOuterNorth1,sprites.dungeon.doorClosedSouth,sprites.dungeon.stairWest,myTiles.tile4,sprites.vehicle.roadIntersection4,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.stairLarge,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,sprites.vehicle.roadTurn1,sprites.vehicle.roadTurn3,sprites.dungeon.floorLight0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadTurn2,sprites.vehicle.roadTurn4,sprites.dungeon.purpleOuterNorthWest,sprites.dungeon.purpleOuterWest1,sprites.dungeon.purpleOuterSouthEast,sprites.dungeon.floorLight1,myTiles.tile9,sprites.dungeon.purpleOuterNorth1,sprites.dungeon.stairLadder,sprites.dungeon.purpleOuterSouth1,myTiles.tile10,sprites.dungeon.stairNorth,myTiles.tile11,sprites.dungeon.greenSwitchUp,myTiles.tile12,sprites.dungeon.purpleOuterNorthEast,sprites.dungeon.purpleOuterEast0,sprites.dungeon.purpleOuterSouthWest,sprites.dungeon.floorLight4,sprites.builtin.brick,sprites.dungeon.floorDark2,sprites.castle.saplingOak,sprites.builtin.forestTiles0,myTiles.tile13,myTiles.tile14,sprites.castle.tileGrass1,sprites.castle.saplingPine,myTiles.tile15,myTiles.tile16,myTiles.tile17,sprites.vehicle.roadIntersection3,myTiles.tile18,sprites.dungeon.floorDark1,myTiles.tile19,myTiles.tile20,myTiles.tile21,myTiles.tile22,myTiles.tile23,sprites.dungeon.floorDark4], TileScale.Sixteen))
+music.playMelody("G F G A - F E D ", 240)
+info.startCountdown(240)
 mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . f f f f f f . . . . . 
@@ -941,7 +952,7 @@ mySprite = sprites.create(img`
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(38, 18))
-info.setLife(3)
+info.setLife(5)
 info.setScore(0)
 let mySprite2 = sprites.create(img`
     e e e . . . . e e e . . . . 
@@ -959,11 +970,15 @@ let mySprite2 = sprites.create(img`
     . f d f f f d f f d f . . . 
     . f f . . f f . . f f . . . 
     `, SpriteKind.Enemy)
-mySprite2.follow(mySprite, 50)
+mySprite2.follow(mySprite, 55)
 tiles.placeOnTile(mySprite2, tiles.getTileLocation(1, 19))
 game.onUpdate(function () {
     movimiento = controller.down.isPressed() || (controller.up.isPressed() || (controller.left.isPressed() || controller.right.isPressed()))
     if (!(movimiento)) {
         animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+    }
+    if (info.life() == 0) {
+        game.over(false, effects.dissolve)
+        music.wawawawaa.play()
     }
 })
